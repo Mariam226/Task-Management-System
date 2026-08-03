@@ -1,0 +1,9 @@
+Scenario :Successful Registration 
+Given: gmail "mariam@gmail.com" password 1234
+when: I submit that and login with that 
+then:I enter to my to do list code 
+  
+Scenario :Failed Registration
+Given: gmail "mariam@gmail.com" password 123
+when : I submit that and login with that 
+then:I couldn't enter my to do list  
