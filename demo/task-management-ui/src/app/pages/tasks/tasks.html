@@ -1,0 +1,58 @@
+
+<div class="board">
+  <div class="column">
+    <h2>TODO</h2>
+    <div class="task-card" *ngFor="let task of toDo">
+      {{ task.desc }}
+      <span class="priority">{{ task.priority }}</span>
+      <div class="task-buttons">
+        <button (click)="removeTask(task)">Delete</button>
+       <button (click)="updateTask(task)">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>IN PROGRESS</h2>
+    <div class="task-card" *ngFor="let task of Do">
+      {{ task.desc }}
+      <span class="priority">{{ task.priority }}</span>
+      <div class="task-buttons">
+        <button (click)="removeTask(task)">Delete</button>
+      <button (click)="updateTask(task)">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>DONE</h2>
+    <div class="task-card" *ngFor="let task of done">
+     {{ task.desc }}
+      <span class="priority">{{ task.priority }}</span>
+      <div class="task-buttons">
+        <button (click)="removeTask(task)">Delete</button>
+        <button (click)="updateTask(task)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="add-task-btn" (click)="showAddForm = true">+ Add Task</button>
+
+<div class="modal-overlay" *ngIf="showAddForm">
+  <div class="modal-box">
+    <h3>Add New Task</h3>
+    <input type="text" [(ngModel)]="newTaskDesc" placeholder="Task description">
+    
+    <select [(ngModel)]="newTaskPriority">
+      <option value="HIGH">HIGH</option>
+      <option value="MEDIUM">MEDIUM</option>
+      <option value="LOW">LOW</option>
+    </select>
+
+    <div class="modal-buttons">
+      <button (click)="addTask(newTaskDesc, newTaskPriority); showAddForm = false">Submit</button>
+      <button (click)="showAddForm = false">Cancel</button>
+    </div>
+  </div>
+</div>
+   

@@ -1,0 +1,14 @@
+<div class="signUpContainer">
+  <div>
+    <label>Gmail</label>
+    <input type="text" [(ngModel)]="gmail" name="gmail">
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password">
+  </div>
+</div>
+<div>
+  <button (click)="submitSignup()">Submit</button>
+</div>
+<p *ngIf="errorMes" style="color: red;">{{ errorMes}}</p>
